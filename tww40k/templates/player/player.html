@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Player Page</title>
+	<style>
+
+	</style>
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li><a class="active" href="#">Disconnect</a></li>
+			<li><a href="#">Maps</a></li>
+			<li><a href="#">Ship</a></li>
+			<li><a href="#">Agent</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<section>
+			<h2>Statistiques</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>CC</th>
+						<th>CT</th>
+						<th>F</th>
+						<th>E</th>
+						<th>Ag</th>
+						<th>Int</th>
+						<th>Per</th>
+						<th>FM</th>
+						<th>Soc</th>
+						<th>Cor</th>
+						<th>Fol</th>
+						<th>Des</th>
+						<th>PV</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><textarea name="CC"></textarea></td>
+						<td><textarea name="CT"></textarea></td>
+						<td><textarea name="F"></textarea></td>
+						<td><textarea name="E"></textarea></td>
+						<td><textarea name="Ag"></textarea></td>
+						<td><textarea name="Int"></textarea></td>
+						<td><textarea name="Per"></textarea></td>
+						<td><textarea name="FM"></textarea></td>
+						<td><textarea name="Soc"></textarea></td>
+						<td><textarea name="Cor"></textarea></td>
+						<td><textarea name="Fol"></textarea></td>
+						<td><textarea name="Des"></textarea></td>
+						<td><textarea name="PV"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="13">
+							<input type="submit" name="submit" value="-->" onclick="postData()">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section>
+			<h2>Talents</h2>
+			<select id="talents-dropdown">
+				<option value="">Select a talent</option>
+				<option value="talent-1">Talent 1 -</option>
+				<option value="talent-2">Talent 2 -</option>
+				<option value="talent-3">Talent 3 -</option>
+			</select>
+			<br>
+			<textarea id="talent-textarea"></textarea>
+			<button id="add-talent-button">+</button>
+		</section>
+
+		<section>
+			<h2>Héritages</h2>
+			<select id="heritages-dropdown">
+				<option value="">Select an heritage</option>
+				<option value="heritage-1">Heritage 1 -</option>
+				<option value="heritage-2">Heritage 2 -</option>
+				<option value="heritage-3">Heritage 3 -</option>
+			</select>
+			<br>
+			<textarea id="heritage-textarea"></textarea>
+			<button id="add-heritage-button">+</button>
+		</section>
+
+		<section>
+			<h2>Equipements</h2>
+			<select id="equipements-dropdown">
+				<option value="">Select an equipment</option>
+				<option value="equipment-1">Equipment 1 -</option>
+				<option value="equipment-2">Equipment 2 -</option>
+				<option value="equipment-3">Equipment 3 -</option>
+			</select>
+			<br>
+			<textarea id="equipment-textarea"></textarea>
+			<button id="add-equipment-button">+</button>
+		</section>
+
+		<!--
+		<td colspan="2" onclick="submitStats()">--&gt;</td>
+		<span onclick="deleteTalent(this)">-</span>
+		<span onclick="deleteComp(this)">-</span>
+		<span onclick="deleteHeritage(this)">-</span>
+		<span onclick="deleteEquipment(this)">-</span>
+
+		<textarea id="newTalent"></textarea>
+		<span onclick="addTalent()">+</span>
+		<textarea id="newComp"></textarea>
+		<span onclick="addComp()">+</span>
+		<textarea id="newHeritage"></textarea>
+		<span onclick="addHeritage()">+</span>
+		<textarea id="newEquipment"></textarea>
+		<span onclick="addEquipment()">+</span>
+
+		-->
+
+	<section id="reseau">
+		<div class="editable-title">
+			<br><br>
+			<textarea> Réseau IRON LADY</textarea>
+			<button class="post-btn" onclick="postChanges()">--></button>
+		</div>
+		<div class="subsection">
+			<div class="subsection-title">
+				<h3>Resource</h3>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<textarea></textarea>
+						<span class="delete-cell" onclick="deleteRow(this)">-</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="add-row-btn" onclick="addRow(this)">+</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="subsection">
+			<div class="subsection-title">
+				<h3>Troupes</h3>
+			</div>
+			<table>
+				<tr>
+					<th>Unité</th>
+					<th>Type</th>
+					<th>Nombre</th>
+					<th>Expérience</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td><textarea></textarea></td>
+					<td><textarea></textarea></td>
+					<td><textarea></textarea></td>
+					<td><textarea></textarea></td>
+					<td><textarea></textarea></td>
+					<td><span class="delete-cell" onclick="deleteRow(this)">-</span></td>
+				</tr>
+				<tr>
+					<td>
+						<button class="add-row-btn" onclick="addRow(this)">+</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="reseau-section">
+						<div class="subsection">
+				<div class="subsection-title">Infrastructure/Entreprise</div>
+				<table>
+					<tr>
+						<th>Nombre</th>
+						<th>Nom</th>
+						<th>Location</th>
+						<th>Resource</th>
+					</tr>
+					<tr>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><button class="delete-button" onclick="deleteRow(this)">-</button></td>
+					</tr>
+					<!-- additional rows will be added dynamically with JavaScript -->
+				</table>
+				<button class="add-button" onclick="addRow(this)">+</button>
+			</div>
+
+			<div class="subsection">
+				<div class="subsection-title">Caserne/Usine</div>
+				<table>
+					<tr>
+						<th>Nombre</th>
+						<th>Nom</th>
+						<th>Location</th>
+						<th>Taille</th>
+						<th>Troupes</th>
+					</tr>
+					<tr>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><button class="delete-button" onclick="deleteRow(this)">-</button></td>
+					</tr>
+					<!-- additional rows will be added dynamically with JavaScript -->
+				</table>
+				<button class="add-button" onclick="addRow(this)">+</button>
+			</div>
+
+			<div class="subsection">
+				<div class="subsection-title">Construction/Invention</div>
+				<table>
+					<tr>
+						<th>Nom</th>
+						<th>Location</th>
+						<th>Taille</th>
+						<th>Temps de construction</th>
+					</tr>
+					<tr>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><button class="delete-button" onclick="deleteRow(this)">-</button></td>
+					</tr>
+					<!-- additional rows will be added dynamically with JavaScript -->
+				</table>
+				<button class="add-button" onclick="addRow(this)">+</button>
+			</div>
+
+			<div class="subsection">
+				<div class="subsection-title">Contact</div>
+				<table>
+					<tr>
+						<th>Pix</th>
+						<th>Nom</th>
+						<th>Titre</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><textarea></textarea></td>
+						<td><button class="delete-button" onclick="deleteRow(this)">-</button></td>
+					</tr>
+					<!-- additional rows will be added dynamically with JavaScript -->
+				</table>
+				<button class="add-button" onclick="addRow(this)">+</button>
+			</div>
+
+			<!-- Nouveau Réseau section -->
+			<section class="nouveau-reseau-section">
+				<h2>Nouveau Réseau <span class="add-section" onclick="createNewReseau()">+</span></h2>
+			</section>
+
+			<!-- Commandes section -->
+			<section class="commandes-section">
+				<h2>Commandes <span class="send-changes" onclick="sendCommandesChanges()">--></span></h2>
+				<table>
+					<thead>
+						<tr>
+							<th>P.A.</th>
+							<th>P.M.</th>
+							<th>P.R.</th>
+							<th>Resource</th>
+							<th>Commande</th>
+						</tr>
+					</thead>
+					<tbody id="commandes-table-body">
+						<tr>
+							<td><textarea></textarea></td>
+							<td><textarea></textarea></td>
+							<td><textarea></textarea></td>
+							<td><textarea></textarea></td>
+							<td><textarea></textarea><span class="remove-row" onclick="removeRow(this)">-</span></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="add-row" onclick="addRow('commandes-table-body')">+</div>
+			</section>
+
+			<section id="results">
+				<h2>Resultat <span class="send-changes" onclick="sendCommandesChanges()">--></span></h2>
+				<table>
+					<tbody>
+						<tr>
+							<td>Pix</td>
+							<td><textarea name="results"></textarea></td>
+							<td><button onclick="addRow('resultats')">+</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+		</main>
+
+		<div class="column">
+			<div class="picture-section">
+				<img src="path/to/image.jpg" alt="Picture">
+				<div class="upload-section">+</div>
+			</div>
+			<div class="cycle-section">
+				Cycle:
+				<select>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<!-- add more options as needed -->
+				</select>
+				<span class="update-Cycle" onclick="addRow('update-Cycle')">--></span>
+			</div>
+			<div class="info-section">
+				<div class="row">
+					<textarea></textarea>
+					<span>P.A.</span>
+				</div>
+				<div class="row">
+					<textarea></textarea>
+					<span>P.M.</span>
+				</div>
+				<div class="row">
+					<textarea></textarea>
+					<span>Compétence</span>
+				</div>
+				<div class="row">
+					<textarea></textarea>
+					<span>Bonus</span>
+				</div>
+				<div class="row">
+					<textarea></textarea>
+					<span>Malus</span>
+				</div>
+			</div>
+			<div class="notes-section">
+				<h3>Notes</h3>
+				<textarea></textarea>
+			</div>
+		</div>
+
+		<script>
+		function postData() {
+			// Code for POST request goes here
+		}
+		</script>
+	</body>
+	</html>
